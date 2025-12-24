@@ -4,206 +4,274 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI Center - Innovative Services</title>
-    <style>
-      /* 기본 스타일 초기화 */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui,
-          Roboto, sans-serif;
-      }
-
-      body {
-        background-color: #f8f9fa;
-        color: #333;
-        line-height: 1.6;
-      }
-
-      /* 상단 히어로 섹션 */
-      .hero {
-        position: relative;
-        height: 450px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        color: white;
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-          url("https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1600")
-            no-repeat center/cover;
-      }
-
-      .hero-content h1 {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-        font-weight: 700;
-      }
-
-      .hero-content p {
-        font-size: 1.2rem;
-        opacity: 0.9;
-      }
-
-      /* 서비스 카드 섹션 */
-      .container {
-        max-width: 1200px;
-        margin: -50px auto 80px;
-        padding: 0 20px;
-        position: relative;
-        z-index: 10;
-      }
-
-      .service-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 30px;
-      }
-
-      /* 카드 스타일 */
-      .card {
-        background: white;
-        border-radius: 20px;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-      }
-
-      .card-image {
-        height: 200px;
-        background-size: cover;
-        background-position: center;
-      }
-
-      .card-body {
-        padding: 30px;
-        text-align: center;
-      }
-
-      .card-body h3 {
-        font-size: 1.5rem;
-        margin-bottom: 15px;
-        color: #1a1a1a;
-      }
-
-      .card-body p {
-        font-size: 0.95rem;
-        color: #666;
-        margin-bottom: 25px;
-        word-break: keep-all;
-      }
-
-      .btn {
-        display: inline-block;
-        padding: 10px 25px;
-        background-color: #007bff;
-        color: white;
-        text-decoration: none;
-        border-radius: 50px;
-        font-weight: 500;
-        transition: background 0.2s;
-      }
-
-      .btn:hover {
-        background-color: #0056b3;
-      }
-
-      /* 반응형 조절 */
-      @media (max-width: 768px) {
-        .hero-content h1 {
-          font-size: 2rem;
-        }
-        .container {
-          margin-top: 20px;
-        }
-      }
-    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header class="hero">
-      <div class="hero-content">
-        <h1>Future with AI Center</h1>
-        <p>우리의 기술로 더 편리한 내일을 만듭니다</p>
+      <div class="hero-inner">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1>AI Center Services</h1>
+          <p>혁신적인 AI 기술을 카테고리별로 확인해보세요</p>
+          <!-- <h1>AI Center Innovation</h1>
+          <p>우리의 지능형 서비스로 비즈니스를 혁신하세요</p> -->
+        </div>
+        <video id="myVideo" autoplay muted loop playsinline>
+          <source src="./3d_digitalform1_compress.mp4" type="video/mp4" />
+          브라우저가 비디오를 지원하지 않습니다.
+        </video>
       </div>
     </header>
 
+    <nav class="tabs-container">
+      <div class="tab-menu">
+        <button class="tab-btn active" onclick="filterServices('all')">
+          전체보기
+        </button>
+        <button class="tab-btn" onclick="filterServices('channel')">
+          채널 Agent
+        </button>
+        <button class="tab-btn" onclick="filterServices('insurance')">
+          보험금 Agent
+        </button>
+        <button class="tab-btn" onclick="filterServices('customer')">
+          대고객 Agent
+        </button>
+        <button class="tab-btn" onclick="filterServices('management')">
+          경영지원 Agent
+        </button>
+      </div>
+    </nav>
+
     <main class="container">
-      <div class="service-grid">
-        <div class="card">
-          <div
-            class="card-image"
-            style="
-              background-image: url('https://images.unsplash.com/photo-1531746790731-6c087fecd05a?auto=format&fit=crop&q=80&w=600');
-            "
-          ></div>
+      <div class="service-grid" id="serviceGrid">
+        <div class="card" data-category="channel">
           <div class="card-body">
-            <h3>AI 챗봇 서비스</h3>
-            <p>
-              자연어 처리 기술을 기반으로 고객의 질문을 이해하고 24시간 정확한
-              답변을 제공합니다.
+            <span class="category-tag">GFC</span>
+            <div class="title-wrap">
+              <h3><i class="ri-arrow-left-up-line"></i>GFC AI Search</h3>
+              <p class="tit-sub">기업정보 전문가</p>
+            </div>
+            <p class="txt-desc">
+              Dart 공시데이터 기반 기업의 재무, 경영현황 빠르게 정리해 영업에
+              활용해요.
             </p>
-            <a href="#" class="btn">자세히 보기</a>
+          </div>
+          <div class="btn-wrap">
+            <!-- <a href="#" target="_blank">관련 문서 바로가기</a> -->
+            <a href="#" target="_blank">사이트 바로가기 ></a>
           </div>
         </div>
 
-        <div class="card">
-          <div
-            class="card-image"
-            style="
-              background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600');
-            "
-          ></div>
+        <div class="card" data-category="channel">
           <div class="card-body">
-            <h3>데이터 분석 AI</h3>
-            <p>
-              방대한 데이터를 분석하여 비즈니스에 핵심적인 통찰력과 미래 예측
-              모델을 제시합니다.
-            </p>
-            <a href="#" class="btn">자세히 보기</a>
+            <span class="category-tag">GA</span>
+            <div class="title-wrap">
+              <h3>WIZ (GA 지식검색)</h3>
+              <p class="tit-sub">sub title</p>
+            </div>
+            <p class="txt-desc">안내 문구</p>
+          </div>
+          <div class="btn-wrap">
+            <a href="#" target="_blank">사이트 바로가기 ></a>
           </div>
         </div>
 
-        <div class="card">
-          <div
-            class="card-image"
-            style="
-              background-image: url('https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&q=80&w=600');
-            "
-          ></div>
+        <div class="card" data-category="insurance">
           <div class="card-body">
-            <h3>이미지 인식 솔루션</h3>
-            <p>
-              딥러닝 기술을 활용하여 사물과 텍스트를 정밀하게 분석하고 자동 분류
-              작업을 수행합니다.
-            </p>
-            <a href="#" class="btn">자세히 보기</a>
+            <span class="category-tag">심사</span>
+            <div class="title-wrap">
+              <h3>AI 지급심사 검색</h3>
+              <p class="tit-sub">sub title</p>
+            </div>
+            <p class="txt-desc">안내 문구</p>
+          </div>
+          <div class="btn-wrap">
+            <a href="#" target="_blank">사이트 바로가기 ></a>
           </div>
         </div>
 
-        <div class="card">
+        <div class="card" data-category="insurance">
+          <div class="card-body">
+            <span class="category-tag">심사</span>
+            <div class="title-wrap">
+              <h3>보험금 자동심사 연계 (Text to KCD)</h3>
+              <p class="tit-sub">sub title</p>
+            </div>
+            <p class="txt-desc">안내 문구</p>
+          </div>
+        </div>
+
+        <div class="card" data-category="insurance">
+          <div class="card-body">
+            <span class="category-tag">심사</span>
+            <div class="title-wrap">
+              <h3>세부내역서 비급여항목 표준화</h3>
+              <p class="tit-sub">sub title</p>
+            </div>
+            <p class="txt-desc">안내 문구</p>
+          </div>
+        </div>
+
+        <div class="card" data-category="insurance">
+          <div class="card-body">
+            <span class="category-tag">심사</span>
+            <div class="title-wrap">
+              <h3>세부내역서 AI OCR 적용 (혁신담보 개발)</h3>
+              <p class="tit-sub">sub title</p>
+            </div>
+            <p class="txt-desc">안내 문구</p>
+          </div>
+        </div>
+
+        <div class="card" data-category="customer">
+          <div class="card-body">
+            <span class="category-tag">고객경험</span>
+            <div class="title-wrap">
+              <h3>CX 글쓰기</h3>
+              <p class="tit-sub">sub title</p>
+            </div>
+            <p class="txt-desc">안내 문구</p>
+          </div>
+          <div class="btn-wrap">
+            <a href="#" target="_blank">사이트 바로가기 ></a>
+          </div>
+        </div>
+
+        <div class="card" data-category="customer">
+          <div class="card-body">
+            <span class="category-tag">콜센터</span>
+            <div class="title-wrap">
+              <h3>보이스피싱 방지 성문일치도 분석</h3>
+              <p class="tit-sub">sub title</p>
+            </div>
+            <p class="txt-desc">안내 문구</p>
+          </div>
+        </div>
+
+        <div class="card" data-category="customer">
+          <div class="card-body">
+            <span class="category-tag">VoC</span>
+            <div class="title-wrap">
+              <h3>VoC 지식검색</h3>
+              <p class="tit-sub">sub title</p>
+            </div>
+            <p class="txt-desc">안내 문구</p>
+          </div>
+          <div class="btn-wrap">
+            <a href="#" target="_blank">사이트 바로가기 ></a>
+          </div>
+        </div>
+
+        <div class="card" data-category="management">
+          <div class="card-body">
+            <span class="category-tag">상품</span>
+            <div class="title-wrap">
+              <h3>보험상품 비교</h3>
+              <p class="tit-sub">sub title</p>
+            </div>
+            <p class="txt-desc">안내 문구</p>
+          </div>
+          <div class="btn-wrap">
+            <a href="#" target="_blank">사이트 바로가기 ></a>
+          </div>
+        </div>
+
+        <div class="card" data-category="management">
+          <div class="card-body">
+            <span class="category-tag">자산</span>
+            <div class="title-wrap">
+              <h3>재무심사 Agent</h3>
+              <p class="tit-sub">sub title</p>
+            </div>
+            <p class="txt-desc">안내 문구</p>
+          </div>
+          <div class="btn-wrap">
+            <a href="#" target="_blank">사이트 바로가기 ></a>
+          </div>
+        </div>
+
+        <div class="card" data-category="management">
+          <div class="card-body">
+            <span class="category-tag">보안</span>
+            <div class="title-wrap">
+              <h3>고객정보보호 QA</h3>
+              <p class="tit-sub">sub title</p>
+            </div>
+            <p class="txt-desc">안내 문구</p>
+          </div>
+          <div class="btn-wrap">
+            <a href="#" target="_blank">사이트 바로가기 ></a>
+          </div>
+        </div>
+
+        <div class="card" data-category="management">
+          <div class="card-body">
+            <span class="category-tag">준법</span>
+            <div class="title-wrap">
+              <h3>광고 심의</h3>
+              <p class="tit-sub">sub title</p>
+            </div>
+            <p class="txt-desc">안내 문구</p>
+          </div>
+          <div class="btn-wrap">
+            <a href="#" target="_blank">사이트 바로가기 ></a>
+          </div>
+        </div>
+
+        <!-- <div class="card" data-category="platform">
           <div
             class="card-image"
             style="
-              background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600');
+              background-image: url('https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&q=80&w=600');
             "
           ></div>
           <div class="card-body">
-            <h3>보안 지능화 시스템</h3>
+            <span class="category-tag">언어 모델</span>
+            <h3>AI 문서 요약</h3>
             <p>
-              실시간으로 위협을 탐지하고 이상 징후를 파악하여 기업의 소중한
-              자산을 보호합니다.
+              긴 문서를 핵심 내용 위주로 빠르게 요약하여 업무 효율성을
+              극대화합니다.
             </p>
             <a href="#" class="btn">자세히 보기</a>
           </div>
-        </div>
+        </div> -->
       </div>
     </main>
+
+    <script>
+      // 페이지 로드 시 비디오 속도 조절
+      const video = document.getElementById("myVideo");
+      video.playbackRate = 0.5; // 0.5배속 (기본은 1.0)
+
+      function filterServices(category) {
+        const cards = document.querySelectorAll(".card");
+        const btns = document.querySelectorAll(".tab-btn");
+
+        // 버튼 활성화 상태 변경
+        btns.forEach((btn) => {
+          btn.classList.remove("active");
+          if (btn.getAttribute("onclick").includes(`'${category}'`)) {
+            btn.classList.add("active");
+          }
+        });
+
+        // 카드 필터링
+        cards.forEach((card) => {
+          if (
+            category === "all" ||
+            card.getAttribute("data-category") === category
+          ) {
+            card.classList.remove("hidden");
+          } else {
+            card.classList.add("hidden");
+          }
+        });
+      }
+    </script>
   </body>
 </html>

@@ -1,0 +1,219 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui,
+    Roboto, sans-serif;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body {
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* 상단 히어로 섹션 */
+.hero {
+  width: 100%;
+  height: 50vh;
+  background-color: #000;
+}
+.hero-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  /* overflow: hidden; */
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  color: white;
+}
+
+/* 비디오 스타일 */
+.hero video {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+
+/* 텍스트 가독성을 위한 어두운 오버레이 */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* 어둡기 조절 (0.5 = 50%) */
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+.hero-content p {
+  font-size: 1.3rem;
+  opacity: 0.9;
+}
+
+/* 탭 메뉴 섹션 */
+.tabs-container {
+  position: relative;
+  max-width: 1200px;
+  margin: -30px auto 20px;
+  padding: 0 20px;
+  text-align: center;
+  z-index: 10;
+}
+
+.tab-menu {
+  display: inline-flex;
+  background: white;
+  padding: 8px;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  list-style: none;
+}
+
+.tab-btn {
+  padding: 12px 30px;
+  cursor: pointer;
+  border-radius: 40px;
+  font-weight: 600;
+  color: #666;
+  transition: all 0.3s ease;
+  border: none;
+  background: none;
+  font-size: 1rem;
+}
+
+.tab-btn.active {
+  background-color: #007bff;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+/* 서비스 카드 섹션 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto 80px;
+  padding: 0 20px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* 카드 스타일 및 애니메이션 */
+.card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 25px;
+}
+
+/* 필터링용 클래스 */
+.card.hidden {
+  display: none;
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.card:hover {
+  /* transform: translateY(-10px); */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.card-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-body {
+  /* text-align: center; */
+}
+
+.card-body .title-wrap {
+}
+
+.card-body h3 {
+  font-size: 1.4rem;
+  /* margin-bottom: 10px; */
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+.card-body .tit-sub {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.card-body .txt-desc {
+  margin-top: 10px;
+  color: #666;
+}
+
+.category-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: #e9ecef;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: #495057;
+  margin-bottom: 10px;
+}
+
+.btn-wrap {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  a {
+    color: #007bff;
+    font-size: 13px;
+  }
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 25px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .tab-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
