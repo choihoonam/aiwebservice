@@ -213,8 +213,17 @@ body {
   .hero-content h1 {
     font-size: 2rem;
   }
+  .tabs-container {
+    margin-top: 20px;
+    padding: 0;
+  }
+  .tab-menu {
+    background-color: transparent;
+    box-shadow: none;
+  }
   .tab-btn {
-    padding: 10px 20px;
+    flex: 1;
+    padding: 10px 0;
     font-size: 0.9rem;
   }
 }
